@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siva Sai Teja | DevOps Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --accent: #38bdf8;
+}
+
+body.light {
+    --bg: #ffffff;
+    --card: #f8fafc;
+    --text: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10%;
+    background: var(--card);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 10%;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.typing {
+    color: var(--accent);
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.btn {
+    margin: 15px;
+    padding: 12px 25px;
+    background: var(--accent);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* SECTION */
+section {
+    padding: 70px 10%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* PROJECT CARD */
+.project {
+    border-left: 4px solid var(--accent);
+}
+
+/* TIMELINE */
+.timeline {
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+}
+
+.timeline div {
+    margin-bottom: 25px;
+}
+
+/* CONTACT */
+.contact p {
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--card);
+}
+
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>Portfolio</b></div>
+<div>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<span onclick="toggleMode()" style="cursor:pointer;">🌙</span>
+</div>
+</nav>
+
+<section class="hero">
+  
+<img src="https://${aws_s3_bucket.my_bucket.bucket}.s3.amazonaws.com/${aws_s3_object.image.key}" alt="Profile Photo" class="profile-img">
+
+
+<h1>Siva Sai Teja Gurram</h1>
+<div class="typing"></div>
+<p>
+Aspiring AWS & DevOps Engineer with strong hands-on experience in cloud infrastructure, automation, CI/CD pipelines, containerization, and scalable system design. Passionate about building efficient and reliable cloud-native applications.
+</p>
+<button class="btn" onclick="scrollToSection('projects')">View Projects</button>
+<button class="btn">Download Resume</button>
+</section>
+
+<section class="fade">
+<h2>About Me</h2>
+<p style="text-align:center; max-width:800px; margin:auto;">
+I am an enthusiastic AWS & DevOps Engineer with a solid foundation in cloud computing and software development. I specialize in Infrastructure as Code (Terraform), containerization (Docker), orchestration (Kubernetes), and CI/CD automation (Jenkins). I enjoy solving real-world problems by designing scalable, secure, and automated systems in cloud environments.
+</p>
+</section>
+
+<section id="skills" class="fade">
+<h2>Technical Skills</h2>
+<div class="grid">
+
+<div class="card">
+<h3><i class="fa fa-cloud"></i> Cloud</h3>
+<p>AWS (EC2, S3, VPC, IAM, RDS, Route53, EKS, Load Balancers)</p>
+</div>
+
+<div class="card">
+<h3><i class="fa fa-cogs"></i> DevOps</h3>
+<p>Jenkins, Terraform, Docker, Kubernetes, CI/CD Pipelines</p>
+</div>
+
+<div class="card">
+<h3><i class="fa fa-chart-line"></i> Monitoring</h3>
+<p>Prometheus, Grafana for real-time system monitoring</p>
+</div>
+
+<div class="card">
+<h3><i class="fa fa-code-branch"></i> Version Control</h3>
+<p>Git & GitHub for collaboration and version tracking</p>
+</div>
+
+<div class="card">
+<h3><i class="fa fa-terminal"></i> OS</h3>
+<p>Linux & Windows environments</p>
+</div>
+
+<div class="card">
+<h3><i class="fa fa-python"></i> Programming</h3>
+<p>Python for automation and scripting</p>
+</div>
+
+</div>
+</section>
+
+<section id="projects" class="fade">
+<h2>Projects</h2>
+<div class="grid">
+
+<div class="card project">
+<h3>Three Tier Application on AWS using Terraform</h3>
+<p>
+Designed and deployed a scalable 3-tier architecture with web, application, and database layers. Implemented Infrastructure as Code using Terraform for automated provisioning. Integrated Auto Scaling and Load Balancer to ensure high availability and performance.
+</p>
+</div>
+
+<div class="card project">
+<h3>CI/CD Pipeline for Flipmart (E-Commerce)</h3>
+<p>
+Developed a fully automated CI/CD pipeline by containerizing applications using Docker, integrating Jenkins for build and deployment, and deploying applications on Kubernetes clusters using YAML configurations.
+</p>
+</div>
+
+</div>
+</section>
+
+<section class="fade">
+<h2>Education</h2>
+<div class="timeline">
+
+<div>
+<h4>Master of Computer Applications (MCA) (2023–2025)</h4>
+<p>CGPA: 7.8 – RVR & JC College of Engineering</p>
+</div>
+
+<div>
+<h4>Bachelor of Computer Applications (BCA) (2020–2023)</h4>
+<p>CGPA: 8.0 – Sri Harshini Degree College</p>
+</div>
+
+<div>
+<h4>Intermediate MPC (2018–2020)</h4>
+<p>CGPA: 7.5 – MSR Junior College</p>
+</div>
+
+<div>
+<h4>SSC (2017–2018)</h4>
+<p>CGPA: 8.2 – Z.P High School</p>
+</div>
+
+</div>
+</section>
+
+<section class="fade">
+<h2>Achievements</h2>
+<div class="grid">
+<div class="card">🏆 Secured 2nd Place in CloudShield DevSecOps Hackathon 2026 by building a complete DevSecOps pipeline.</div>
+<div class="card">🎯 Organized and coordinated a Web Development Workshop as an Event Coordinator.</div>
+</div>
+</section>
+
+<section class="fade">
+<h2>Certifications</h2>
+<div class="grid">
+<div class="card">NPTEL Cloud Computing (Elite)</div>
+<div class="card">NPTEL Joy of Computing Python (Elite)</div>
+</div>
+</section>
+
+<section id="contact" class="contact fade">
+<h2>Contact</h2>
+<p><i class="fa fa-envelope"></i> gurramsai02@gmail.com</p>
+<p><i class="fa fa-phone"></i> +91 9666817035</p>
+<p><i class="fa fa-linkedin"></i> https://www.linkedin.com/in/sivasaiteja02/</p>
+<p><i class="fa fa-github"></i> https://www.github.com/in/sivasaiteja2/</p>
+</section>
+
+<footer>
+<p>© 2026 Siva Sai Teja Gurram</p>
+</footer>
+
+<script>
+// typing effect
+const text = "AWS & DevOps Engineer";
+let i = 0;
+function type() {
+    if (i < text.length) {
+        document.querySelector(".typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 80);
+    }
+}
+type();
+
+// fade animation
+const faders = document.querySelectorAll(".fade");
+window.addEventListener("scroll", () => {
+    faders.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+            el.classList.add("show");
+        }
+    });
+});
+
+// dark mode
+function toggleMode() {
+    document.body.classList.toggle("light");
+}
+
+// scroll
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
